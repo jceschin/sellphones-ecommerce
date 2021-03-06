@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "firebase": "^8.2.3",
     "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.7",
     "query-string": "^6.13.8",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
