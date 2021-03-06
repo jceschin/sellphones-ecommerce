@@ -1,0 +1,21 @@
+.personalized-title {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #f2f2f2;
+  margin-top: -75px;
+  margin-bottom: 70px;
+}
+
+.align-items-personalized {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin-top: 169px;
+  margin-left: 300px;
+}
+
+.wrong-chooise {
+  margin-top: 151px !important;
+  margin-left: 705px !important;
+}

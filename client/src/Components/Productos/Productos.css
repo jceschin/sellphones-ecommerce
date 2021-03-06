@@ -1,0 +1,78 @@
+
+.fade {
+  opacity: 1;
+}
+.productos-bg {
+  background-image: url("../../img/fondoproducto.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: scroll;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif !important;
+  overflow: scroll;
+}
+
+.color-table-product {
+  color: #f2f2f2 !important;
+}
+
+.list-prod-all {
+  position: relative;
+  width: 40%;
+  margin-top: 70px;
+  padding: 0px 57px 60px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+              5px 5px 15px rgba(0, 0, 0, 0.5);
+  font-size: 17px;
+}
+
+.list-prod-all .cont-list-products{
+  width: 100%;
+}
+
+.products-container {
+  color: #f2f2f2 !important;
+}
+.products-container td {
+  margin-bottom: 0px;
+  vertical-align: middle;
+}
+.td-width {
+  padding-right: 30px !important;
+}
+
+.list-prod-all tr{
+  height: 50px; 
+}
+
+.form-td-btn-edit button{
+  margin: 0 10px;
+}
+
+
+.modal-btn-actions{
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-product-btn {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+}

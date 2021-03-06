@@ -1,0 +1,85 @@
+
+.div-settings-cont{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5% 10% 0% 10%;
+}
+
+.div-settings-cont .avatar-img-setttings{
+  width: 20%; 
+  height: 30%;
+  align-self: center;
+}
+
+.div-settings-cont .avatar-img-setttings img{
+  width: 150px;
+  height: 150px;
+}
+
+
+.div-settings-cont .div-settings-gen-user{
+  width: 60%;
+  align-self: center;
+  margin: auto;
+}
+
+.div-settings-cont .div-settings-gen-user td span{
+  font-weight: lighter ;
+  font-size: 25px;
+}
+
+.div-settings-cont .div-settings-gen-user .change-pass-table span{
+  font-weight: lighter ;
+  font-size: 20px;
+  transition: 1s;
+}
+
+.div-settings-cont .div-settings-gen-user .change-pass-table span:hover{
+  cursor: pointer;
+  color: blueviolet;
+}
+
+.conten-pass-reset{
+  width: 100%;
+}
+
+.form-pass-log{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  transition: 1.5s;
+}
+
+.in-form-pass{
+  width: 500px;
+
+}
+
+
+.label-in-pass{
+  display: none;
+  font-size: 20px;
+}
+
+.in-pass-input{
+  width: 380px;
+  background: #1d1d39;
+  border: 2px solid #398Ab2;
+  padding: 10px;
+  margin-top: 5px;
+  color: #f2f2f2;
+  border-radius: 5px;
+  height: 45px;
+}
+
+.in-butt-pass{
+  margin: auto;
+  text-align: center;
+  border: none;
+  margin-top: 20px;
+  border: 2px solid #398Ab2;
+  border-radius: 5px;
+  background-color: #1d1d39;
+}

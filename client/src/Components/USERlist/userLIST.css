@@ -1,0 +1,49 @@
+.all-users-container {
+  background-image: url("../../img/fondoproducto.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: scroll;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  color: #f2f2f2 !important;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif !important;
+  overflow: scroll;
+}
+
+.list-orders-all{
+  position: relative;
+  width: 40%;
+  margin-top: 70px;
+  padding: 0px 57px 60px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+              5px 5px 15px rgba(0, 0, 0, 0.5);
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-orders-all .extend-add-user{
+  margin-right: auto;
+}
+
+.all-users-content {
+  color: #f2f2f2 !important;
+}
+
+.all-users-table {
+  margin-top: 30px;
+}
+
+tr {
+  vertical-align: middle;
+}

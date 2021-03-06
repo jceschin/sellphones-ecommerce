@@ -1,0 +1,48 @@
+.labelFormx {
+    display       : block;
+    margin-top    : 20px;
+    letter-spacing: 1px;
+
+}
+
+
+.formFormx {
+    margin: 0 auto;
+    width : 400px;
+    font-family: "Roboto";
+}
+
+.inputFormx,
+.textareaFormx {
+    width        : 380px;
+    height       : 27px;
+    background   : #1d1d39;
+    border       : 2px solid #398Ab2;
+    padding      : 10px;
+    margin-top   : 5px;
+    font-size    : 10px;
+    color        : #f2f2f2;
+    border-radius: 5px;
+}
+
+.textareaFormx {
+    height: 150px;
+}
+
+.submitFormx {
+    text-align: center;
+    width           : 70px;
+    height          : 25px;
+    border          : none;
+    margin-top      : 20px;
+    cursor          : pointer;
+    border          : 2px solid #398Ab2;
+    border-radius   : 5px;
+    background-color: #1d1d39;
+    ;
+}
+
+.submitFormx:hover{
+    background-color: #444499;
+    border: none
+}

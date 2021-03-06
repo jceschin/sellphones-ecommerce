@@ -1,0 +1,20 @@
+.conten-order-details {
+  margin-top: 60px;
+  width: 90%;
+  border: 1px solid rgba(187, 186, 186, 0.842);
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  background-color: rgb(0, 31, 65, 0.5);
+}
+.conten-order-details h1 {
+  border-bottom: 1px solid rgba(187, 186, 186, 0.842);
+}
+.last-product-details {
+  border-bottom: 1px solid rgba(187, 186, 186, 0.842);
+  display: flex;
+  align-items: center;
+}
+
+.last-product-details img {
+  width: 10%;
+}
