@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "firebase": "^8.2.3",
     "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.7",
     "query-string": "^6.13.8",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
@@ -29,8 +30,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "rsuite": "^4.8.6",
-    "nodemon": "^2.0.7"
+    "rsuite": "^4.8.6"
   },
   "scripts": {
     "start": "react-scripts start",
