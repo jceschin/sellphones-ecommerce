@@ -2,7 +2,7 @@ const server = require("express").Router();
 const { Order, User, Product } = require("../db.js");
 const { Sequelize } = require("sequelize");
 
-server.put("http://localhost:3001/:userId/cart", (req, res) => {
+server.put("/:userId/cart", (req, res) => {
   const { userId } = req.params;
   const { id, acum } = req.body;
   // aceptame
@@ -34,7 +34,7 @@ server.put("http://localhost:3001/:userId/cart", (req, res) => {
           })
 })
 
-server.post("http://localhost:3001/:userId/cart/:userOrden", (req, res) => {
+server.post("/:userId/cart/:userOrden", (req, res) => {
   const { userOrden } = req.params;
   const { id, acum } = req.body;
 

@@ -15,7 +15,7 @@ mercadopago.configure({
 });
 
 //Ruta que genera la URL de MercadoPago
-server.get("http://localhost:3001/", (req, res) => {
+server.get("/", (req, res) => {
 
     const { id } = req.query;
 
@@ -56,7 +56,7 @@ server.get("http://localhost:3001/", (req, res) => {
 });
 
 
-server.get("http://localhost:3001/purchaseSuccess/:id", (req, res) => {
+server.get("/purchaseSuccess/:id", (req, res) => {
 
     const { id } = req.params;
 
@@ -129,13 +129,13 @@ server.get("http://localhost:3001/purchaseSuccess/:id", (req, res) => {
                 res.status(500).send(err.message);
             } else {
                 console.log(`email enviado a ${to}`);
-                res.redirect("http://localhost:3001/me/shopping");
+                res.redirect("/me/shopping");
             }
         });
     })
 
 });
-server.get("http://localhost:3001/purchaseFailure/:id", (req, res) => {
+server.get("/purchaseFailure/:id", (req, res) => {
 
     const { id } = req.params;
 
@@ -194,7 +194,7 @@ server.get("http://localhost:3001/purchaseFailure/:id", (req, res) => {
                 one: "Oops ... something didn't go right.",
                 two: 'Payment failed, please go back to your cart and try again.',
                 three: 'Go to cart',
-                four: 'http://localhost:3001/cart'
+                four: '/cart'
             }
         };
         transporter.sendMail(mailOptions, (err, info) => {
@@ -202,7 +202,7 @@ server.get("http://localhost:3001/purchaseFailure/:id", (req, res) => {
                 res.status(500).send(err.message);
             } else {
                 console.log(`email enviado a ${to}`);
-                res.redirect("http://localhost:3001/");
+                res.redirect("/");
             }
         });
     })

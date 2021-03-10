@@ -3,7 +3,7 @@ const { User } = require("../db.js");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 
-server.get("http://localhost:3001/me", async (req, res, next) => {
+server.get("/me", async (req, res, next) => {
   try {
     if (req.user) {
       const { id } = req.user;
@@ -16,11 +16,11 @@ server.get("http://localhost:3001/me", async (req, res, next) => {
 });
 
 
-server.get('http://localhost:3001/github',
+server.get('/github',
   passport.authenticate('github', { scope: [ 'user:email' ],prompt: 'select_account', }));
 
-server.get('http://localhost:3001/github/callback',
-  passport.authenticate('github', { failureRedirect: 'http://localhost:3001/login' }),
+server.get('/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     const { id, givenName, familyName, email, photoURL, isAdmin } = req.user;
@@ -37,17 +37,17 @@ server.get('http://localhost:3001/github/callback',
         "secreto")
 
 
-      res.redirect(`http://localhost:3001/gettokensocial?${token}`)
+      res.redirect(`/gettokensocial?${token}`)
   });
 
 
-server.get('http://localhost:3001/google', passport.authenticate('google', {
+server.get('/google', passport.authenticate('google', {
   scope: ['profile', 'email'],
   prompt: 'select_account',
 }));
 
-server.get('http://localhost:3001/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:3001/login' }),
+server.get('/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     const { id, givenName, familyName, email, photoURL, isAdmin } = req.user;
@@ -63,7 +63,7 @@ server.get('http://localhost:3001/google/callback',
         },
         "secreto")
 
-      res.redirect(`http://localhost:3001/gettokensocial?${token}`)
+      res.redirect(`/gettokensocial?${token}`)
 
   });
 
@@ -78,7 +78,7 @@ function validate(email, password) {
   return true;
 }
 
-server.post("http://localhost:3001/register", async function (req, res, next) {
+server.post("/register", async function (req, res, next) {
   try {
     if (validate(req.body.email, req.body.password)) {
       const user = await User.create(req.body);
@@ -104,7 +104,7 @@ server.post("http://localhost:3001/register", async function (req, res, next) {
   }
 });
 
-server.post("http://localhost:3001/login", function (req, res, next) {
+server.post("/login", function (req, res, next) {
   passport.authenticate("local", function (err, user) {
     if (err) return next(err);
     else if (!user) return res.sendStatus(401);
@@ -112,7 +112,7 @@ server.post("http://localhost:3001/login", function (req, res, next) {
   })(req, res, next);
 });
 
-server.post("http://localhost:3001/promote", (req, res) => {
+server.post("/promote", (req, res) => {
   const { id, isAdmin } = req.body;
   User.findOne({ where: { id } })
     .then((user) => {

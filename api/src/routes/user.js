@@ -2,7 +2,7 @@ const server = require("express").Router();
 const { User } = require("../db.js");
 const validadmin = require("../verify");
 
-server.get("http://localhost:3001/", async (req, res, next) => {
+server.get("/", async (req, res, next) => {
   try {
     //if (req.user?.isAdmin) {
     const result = await User.findAll();
@@ -14,7 +14,7 @@ server.get("http://localhost:3001/", async (req, res, next) => {
     next(error);
   }
 });
-server.get("http://localhost:3001/:id", async (req, res, next) => {
+server.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await User.findByPk(id);
@@ -24,7 +24,7 @@ server.get("http://localhost:3001/:id", async (req, res, next) => {
   }
 });
 
-server.put("http://localhost:3001/:id", validadmin, (req, res) => {
+server.put("/:id", validadmin, (req, res) => {
   const { id } = req.params;
   //del body sacamos los datos que queremos modificar
   const { givenName, familyName, email, isAdmin } = req.body;
@@ -47,7 +47,7 @@ server.put("http://localhost:3001/:id", validadmin, (req, res) => {
     });
 });
 
-server.post("http://localhost:3001/passwordreset", (req, res) => {
+server.post("/passwordreset", (req, res) => {
   const { oldpassword, password , id } = req.body;
   User.findOne({ where: { id } })
     .then((user) => {
@@ -69,7 +69,7 @@ server.post("http://localhost:3001/passwordreset", (req, res) => {
 
 
 
-server.post("http://localhost:3001/passwordresetforgot", (req, res) => {
+server.post("/passwordresetforgot", (req, res) => {
   const { password , id } = req.body;
   User.findOne({ where: { id } })
     .then((user) => {
@@ -84,7 +84,7 @@ server.post("http://localhost:3001/passwordresetforgot", (req, res) => {
     });
 });
 
-server.delete("http://localhost:3001/:id", validadmin, (req, res) => {
+server.delete("/:id", validadmin, (req, res) => {
   const { id } = req.params;
 
   return User.findOne({ where: { id } })

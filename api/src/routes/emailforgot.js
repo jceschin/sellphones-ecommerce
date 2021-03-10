@@ -4,7 +4,7 @@ const { User } = require("../db.js");
 const crypto = require('crypto');
 
 
-server.post("http://localhost:3001/forgotPassword", (req, res) => {
+server.post("/forgotPassword", (req, res) => {
   if(req.body.email === ''){
     res.status(400).send('email required');
   }
@@ -54,7 +54,7 @@ server.post("http://localhost:3001/forgotPassword", (req, res) => {
 
 });
 
-server.post('http://localhost:3001/reset',(req,res)=>{
+server.post('/reset',(req,res)=>{
   console.log(req.body.token);
    User.findOne({
      where: {

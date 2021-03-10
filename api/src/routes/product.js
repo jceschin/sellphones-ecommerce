@@ -6,7 +6,7 @@ const Order = require("../models/Order.js");
 
 //Create new product ----> '/products'
 
-server.post("http://localhost:3001/", (req, res, next) => {
+server.post("/", (req, res, next) => {
   Product.create({
     name: req.body.name,
     processor: req.body.processor,
@@ -29,14 +29,14 @@ server.post("http://localhost:3001/", (req, res, next) => {
     .catch(next);
 });
 
-server.post("http://localhost:3001/:idProd/category/:idCateg", validadmin, (req, res, next) => {
+server.post("/:idProd/category/:idCateg", validadmin, (req, res, next) => {
   // agrega categoria al producto
   Product.findByPk(req.params.idProd)
     .then((product) => product.addCategory(req.params.idCateg))
     .then((success) => res.sendStatus(201)); // sequelize crea un metodo add para las relaciones n:n, ergo, tambien esta el metodo addProduct en la tabla Category
 });
 
-server.post("http://localhost:3001/:idProd/sugestion/:idCateg", validadmin, (req, res, next) => {
+server.post("/:idProd/sugestion/:idCateg", validadmin, (req, res, next) => {
   // agrega sugestion al producto
   Product.findByPk(req.params.idProd)
     .then((product) => product.addSugestion(req.params.idCateg))
@@ -44,7 +44,7 @@ server.post("http://localhost:3001/:idProd/sugestion/:idCateg", validadmin, (req
 });
 
 // get an all products ----> '/products'
-server.get("http://localhost:3001/", (req, res, next) => {
+server.get("/", (req, res, next) => {
   let categories = req.query.categories;
   let q;
   if (typeof categories === "undefined" || categories === []) {
@@ -65,7 +65,7 @@ server.get("http://localhost:3001/", (req, res, next) => {
   }).catch(next);
 });
 
-server.post("http://localhost:3001/sugestions", (req, res) => {
+server.post("/sugestions", (req, res) => {
   //esta ruta filtra los productos por las sugestions
   const { sugestion } = req.body;
   console.log("hola", req.body);
@@ -86,7 +86,7 @@ server.post("http://localhost:3001/sugestions", (req, res) => {
   });
 });
 
-server.get("http://localhost:3001/search/:query", (req, res) => {
+server.get("/search/:query", (req, res) => {
   Product.findAll({
     where: {
       [Op.or]: [
@@ -100,7 +100,7 @@ server.get("http://localhost:3001/search/:query", (req, res) => {
 });
 
 //get an one product  -------> '/products/:id'
-server.get("http://localhost:3001/:id", (req, res) => {
+server.get("/:id", (req, res) => {
   const { id } = req.params;
 
   return Product.findOne({ where: { id } })
@@ -119,7 +119,7 @@ server.get("http://localhost:3001/:id", (req, res) => {
 });
 
 //Modify an especific product ---> '/products/:id'
-server.put("http://localhost:3001/:id", validadmin, (req, res) => {
+server.put("/:id", validadmin, (req, res) => {
   //sacamos el id del producto que queremos modificar
   const { id } = req.params;
   //del body sacamos los datos que queremos modificar
@@ -144,7 +144,7 @@ server.put("http://localhost:3001/:id", validadmin, (req, res) => {
 });
 
 //Delete an especific product -----> '/products/:id'
-server.delete("http://localhost:3001/:id", validadmin, (req, res) => {
+server.delete("/:id", validadmin, (req, res) => {
   const { id } = req.params;
 
   return Product.findOne({ where: { id } })
@@ -163,7 +163,7 @@ server.delete("http://localhost:3001/:id", validadmin, (req, res) => {
 });
 
 // Add review
-server.post("http://localhost:3001/:id/reviews/:userid", (req, res) => {
+server.post("/:id/reviews/:userid", (req, res) => {
   let productId = req.params.id;
   let userId = req.params.userid;
   let { rating, description } = req.body;
@@ -183,7 +183,7 @@ server.post("http://localhost:3001/:id/reviews/:userid", (req, res) => {
 });
 
 //Modify review
-server.put("http://localhost:3001/:id/reviews/:idReview", (req, res) => {
+server.put("/:id/reviews/:idReview", (req, res) => {
   let reviewId = req.params.idReview;
   let { rating, description } = req.body;
 
@@ -204,7 +204,7 @@ server.put("http://localhost:3001/:id/reviews/:idReview", (req, res) => {
 });
 
 //Delete review
-server.delete("http://localhost:3001/:id/reviews/:idReview", (req, res, next) => {
+server.delete("/:id/reviews/:idReview", (req, res, next) => {
   const reviewId = req.params.idReview;
 
   Review.findOne({
@@ -220,7 +220,7 @@ server.delete("http://localhost:3001/:id/reviews/:idReview", (req, res, next) =>
 });
 
 // Get all product reviews
-server.get("http://localhost:3001/:id/reviews", (req, res, next) => {
+server.get("/:id/reviews", (req, res, next) => {
   let productId = req.params.id;
 
   Product.findOne({
@@ -238,7 +238,7 @@ server.get("http://localhost:3001/:id/reviews", (req, res, next) => {
 });
 
 // Get all user reviews
-server.get("http://localhost:3001/reviews/:userid", (req, res, next) => {
+server.get("/reviews/:userid", (req, res, next) => {
   let { userid } = req.params;
 
   Review.findAll({

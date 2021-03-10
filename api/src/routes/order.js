@@ -2,7 +2,7 @@ const server = require("express").Router();
 const { Order, User, Product } = require("../db.js");
 const { Sequelize } = require("sequelize");
 
-server.get("http://localhost:3001/cart/:id", (req, res) => {
+server.get("/cart/:id", (req, res) => {
   //ruta para encontrar la orden carrito y devolver el id de la orden
 
   const { id } = req.params;
@@ -26,7 +26,7 @@ server.get("http://localhost:3001/cart/:id", (req, res) => {
 
 //traer todas las ordenes de un usuario en especifico
 
-server.get("http://localhost:3001/user/:id", (req, res) => {
+server.get("/user/:id", (req, res) => {
   const { id } = req.params;
   Order.findAll({
     where: { userId: id },
@@ -46,7 +46,7 @@ server.get("http://localhost:3001/user/:id", (req, res) => {
     });
 });
 
-server.post("http://localhost:3001/cart", (req, res, next) => {
+server.post("/cart", (req, res, next) => {
   //ruta para agregar elementos a la orden carrito y sumar con contador
   const { id } = req.body;
   Order.findAll({
@@ -83,7 +83,7 @@ server.post("http://localhost:3001/cart", (req, res, next) => {
 });
 
 // Crear ordenes al azar pueba de todas mis ordenes
-server.post("http://localhost:3001/create/:userid", (req, res) => {
+server.post("/create/:userid", (req, res) => {
   const { userid } = req.params;
   Order.create({
     state: "success",
@@ -94,7 +94,7 @@ server.post("http://localhost:3001/create/:userid", (req, res) => {
   });
 });
 
-server.post("http://localhost:3001/cart/:orderid", (req, res, next) => {
+server.post("/cart/:orderid", (req, res, next) => {
   //con el id de la orden creada y el id del producto se hace el addProduct a la tabla intermedia
   var orderPromisse = Order.findByPk(req.params.orderid);
   var productInit = Product.findByPk(req.body.idproduct);
@@ -137,7 +137,7 @@ server.post("http://localhost:3001/cart/:orderid", (req, res, next) => {
     });
 });
 
-server.get("http://localhost:3001/", (req, res) => {
+server.get("/", (req, res) => {
   let state = req.query.status;
   let order;
 
@@ -165,7 +165,7 @@ server.get("http://localhost:3001/", (req, res) => {
 });
 
 //Elimina una orden especifica del carrito
-server.delete("http://localhost:3001/cart/:orderid", (req, res) => {
+server.delete("/cart/:orderid", (req, res) => {
   const { orderid } = req.params;
   Order.findOne({
     where: { id: orderid }
@@ -180,7 +180,7 @@ server.delete("http://localhost:3001/cart/:orderid", (req, res) => {
     })
 })
 
-server.delete("http://localhost:3001/cart/:orderid/:productid", (req, res, next) => {
+server.delete("/cart/:orderid/:productid", (req, res, next) => {
   //borra un producto especifico del carrito
 
   var orderInc = Order.findByPk(req.params.orderid);
@@ -204,7 +204,7 @@ server.delete("http://localhost:3001/cart/:orderid/:productid", (req, res, next)
   });
 });
 
-server.delete("http://localhost:3001/miniCart/:orderid/:productid", (req, res, next) => {
+server.delete("/miniCart/:orderid/:productid", (req, res, next) => {
   //borra un producto especifico del carrito
 
   var orderInc = Order.findByPk(req.params.orderid);
@@ -236,7 +236,7 @@ server.delete("http://localhost:3001/miniCart/:orderid/:productid", (req, res, n
 
 
 //Obtiene una orden especifica.
-server.get("http://localhost:3001/:id", (req, res, next) => {
+server.get("/:id", (req, res, next) => {
   let id = req.params.id;
   Order.findOne({
     where: { id },
@@ -254,7 +254,7 @@ server.get("http://localhost:3001/:id", (req, res, next) => {
 });
 
 //Modifica una orden especifica.
-server.put("http://localhost:3001/:id", (req, res, next) => {
+server.put("/:id", (req, res, next) => {
   const { id } = req.params;
   const {
     city,
@@ -290,7 +290,7 @@ server.put("http://localhost:3001/:id", (req, res, next) => {
 });
 
 //Get order with specific state
-server.get('http://localhost:3001/state/:state', (req, res) => {
+server.get('/state/:state', (req, res) => {
   let { state } = req.params;
 
   let order = Order.findAll({
@@ -306,7 +306,7 @@ server.get('http://localhost:3001/state/:state', (req, res) => {
   })
 })
 
-server.get("http://localhost:3001/orderproducts/:orderid", (req, res, next) => {
+server.get("/orderproducts/:orderid", (req, res, next) => {
   let { orderid } = req.params;
 
   Order.findAll({
@@ -320,7 +320,7 @@ server.get("http://localhost:3001/orderproducts/:orderid", (req, res, next) => {
       res.status(400).json({ message: "Imposible", data: err });
     });
 });
-server.get("http://localhost:3001/orderproductsdetail/:orderid", (req, res, next) => {
+server.get("/orderproductsdetail/:orderid", (req, res, next) => {
   let { orderid } = req.params;
 
   Order.findOne({
@@ -335,7 +335,7 @@ server.get("http://localhost:3001/orderproductsdetail/:orderid", (req, res, next
     });
 });
 
-server.get("http://localhost:3001/products/:orderid", (req, res, next) => {
+server.get("/products/:orderid", (req, res, next) => {
   let { orderid } = req.params;
 
   Product.findAll({

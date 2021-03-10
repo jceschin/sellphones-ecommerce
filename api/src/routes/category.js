@@ -2,7 +2,7 @@ const server = require("express").Router();
 const { Category } = require("../db.js");
 const validadmin = require("../verify");
 
-server.get("http://localhost:3001/", (req, res, next) => {
+server.get("/", (req, res, next) => {
   Category.findAll()
     .then((category) => {
       res.send(category);
@@ -10,7 +10,7 @@ server.get("http://localhost:3001/", (req, res, next) => {
     .catch(next);
 });
 // aceptame
-server.get("http://localhost:3001/search", (req, res) => {
+server.get("/search", (req, res) => {
   Category.findAll({
     where: {
       categoryName: req.query.query,
@@ -18,7 +18,7 @@ server.get("http://localhost:3001/search", (req, res) => {
   });
 });
 
-server.post("http://localhost:3001/", validadmin, (req, res, next) => {
+server.post("/", validadmin, (req, res, next) => {
   Category.create({
     name: req.body.name,
   })
@@ -28,7 +28,7 @@ server.post("http://localhost:3001/", validadmin, (req, res, next) => {
     .catch(next);
 });
 
-server.delete("http://localhost:3001/:id", validadmin, (req, res) => {
+server.delete("/:id", validadmin, (req, res) => {
   const { id } = req.params;
 
   return Category.findOne({ where: { id } })
@@ -46,7 +46,7 @@ server.delete("http://localhost:3001/:id", validadmin, (req, res) => {
     });
 });
 
-server.put("http://localhost:3001/:id", validadmin, (req, res) => {
+server.put("/:id", validadmin, (req, res) => {
   //sacamos el id del producto que queremos modificar
   const { id } = req.params;
   //del body sacamos los datos que queremos modificar
