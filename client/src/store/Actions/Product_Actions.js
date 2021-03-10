@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 export function getProduct(categories) {
-  return (axios.get('http://localhost:4000/products/', {
+  return (axios.get('/products', { //http://localhost:4000/products/ 
     params: {
       categories
     }
@@ -12,7 +12,7 @@ export function getProduct(categories) {
 
 export function itemCartAdd(userId) {
   return (dispatch) => {
-    axios.get(`http://localhost:4000/orders/cart/${userId}` )
+    axios.get(`/orders/cart/${userId}` ) //http://localhost:4000/orders/cart/${userId}
       .then((res) => {
         console.log(res)
         dispatch({
