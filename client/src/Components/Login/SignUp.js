@@ -61,7 +61,7 @@ function SignUp({ handleCloseUp, handleOpen }) {
           setLoading(true);
           let token;
           await axios
-            .post(`http://localhost:4000/auth/register`, input)
+            .post(`/auth/register`, input) //http://localhost:4000
             .then((response) => {
               if (response.status == 200) {
                 let token = response.data;

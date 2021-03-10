@@ -12,9 +12,9 @@ const AddToCart = (props) => {
 
   function addToCart(id) {
     axios
-      .post(`http://localhost:4000/orders/cart`, { id: user.id })
+      .post(`/orders/cart`, { id: user.id }) //http://localhost:4000
       .then((res) => {
-        axios.post(`http://localhost:4000/orders/cart/${res.data}`, {
+        axios.post(`/orders/cart/${res.data}`, { //http://localhost:4000
           idproduct: id,
         });
       })

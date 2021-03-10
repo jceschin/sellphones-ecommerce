@@ -40,8 +40,8 @@ server.get("/", (req, res) => {
                 installments: 3  //Cuotas
             },
             back_urls: {
-                success: `http://localhost:4000/mercadopago/purchaseSuccess/${id}`,
-                failure: `http://localhost:4000/mercadopago/purchaseFailure/${id}`,
+                success: `/mercadopago/purchaseSuccess/${id}`, //http://localhost:4000
+                failure: `/mercadopago/purchaseFailure/${id}`, //http://localhost:4000
             }
         };
         mercadopago.preferences.create(preference)

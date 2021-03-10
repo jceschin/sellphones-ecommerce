@@ -14,7 +14,7 @@ const Checkout = ({ id }) => {
 
   const orderCart = async () => {
     let response = await axios.get(
-      `http://localhost:4000/orders/cart/${user.id}`
+      `/orders/cart/${user.id}` //http://localhost:4000
     );
     console.log(response);
     setCheckOrder(response.data.data);
@@ -30,7 +30,7 @@ const Checkout = ({ id }) => {
   const handelSubmit = async (e) => {
     //console.log(checkOrder);
     let response = await axios.put(
-      `http://localhost:4000/orders/${id}`,
+      `/orders/${id}`, //http://localhost:4000
       checkOrder
     );
     console.log(response);

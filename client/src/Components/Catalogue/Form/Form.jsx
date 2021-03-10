@@ -20,7 +20,7 @@ const Form = () => {
   let [wishedProduct, setWishedProduct] = useState();
 
   useEffect(() => {
-    axios.get("http://localhost:4000/sugestions/").then((res) => {
+    axios.get("/sugestions/").then((res) => { //http://localhost:4000
       setSugestions(res.data);
     });
   }, []);
@@ -31,7 +31,7 @@ const Form = () => {
       result.push(x.id);
     });
     axios
-      .post("http://localhost:4000/products/sugestions", {
+      .post("/products/sugestions", { //http://localhost:4000
         sugestion: result,
       })
       .then((response) => {

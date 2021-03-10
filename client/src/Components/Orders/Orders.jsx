@@ -15,7 +15,7 @@ const Orders = () => {
 
   // Get all orders from DB and asign it to local state
   async function getOrders() {
-    let response = await axios.get("http://localhost:4000/orders/");
+    let response = await axios.get("/orders/");//http://localhost:4000
     setAllOrders(response.data);
   }
 
@@ -34,7 +34,7 @@ const Orders = () => {
   }
 
   async function getOrderByState(event) {
-    let response = await axios.get(`http://localhost:4000/orders/state/${event.target.value}`);
+    let response = await axios.get(`/orders/state/${event.target.value}`);//http://localhost:4000
     setAllOrders(response.data);
   }
 
@@ -55,7 +55,7 @@ const Orders = () => {
   function handleEdit(e) {
     e.preventDefault();
     axios
-      .put(`http://localhost:4000/orders/${selectedOrder.id}`, selectedOrder)
+      .put(`/orders/${selectedOrder.id}`, selectedOrder)//http://localhost:4000
       .then((res) => {
         var orderEditedIndex = allOrders.findIndex((order) => order.id === res.data.data.id);
         allOrders[orderEditedIndex] = res.data.data;

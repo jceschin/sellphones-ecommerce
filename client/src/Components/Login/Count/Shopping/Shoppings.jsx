@@ -11,7 +11,7 @@ const CountShoppings = () => {
 
   const getUserOrders = async () => {
     let response = await axios.get(
-      `http://localhost:4000/orders/user/${user.id}`
+      `/orders/user/${user.id}`//http://localhost:4000
     );
     setOrders(response.data.data);
   };

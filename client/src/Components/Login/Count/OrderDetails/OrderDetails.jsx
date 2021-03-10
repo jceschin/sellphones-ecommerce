@@ -12,7 +12,7 @@ const OrderDetails = () => {
 
   async function getOrderProducts() {
     let products = await axios.get(
-      `http://localhost:4000/orders/orderproductsdetail/${id}`
+      `/orders/orderproductsdetail/${id}` //http://localhost:4000
     );
     setOrderProducts(products.data.data.products);
   }

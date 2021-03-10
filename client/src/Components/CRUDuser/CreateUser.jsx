@@ -25,7 +25,7 @@ export default function CreateUser() {
   function handlerSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/user", user, {
+      .post("/user", user, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((res) => {

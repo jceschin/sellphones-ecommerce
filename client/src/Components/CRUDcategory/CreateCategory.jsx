@@ -17,7 +17,7 @@ export default function CreateCategory() {
 
   function postcategories() {
     axios
-      .post("http://localhost:4000/category/", category, {
+      .post("/category/", category, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then(function (response) {

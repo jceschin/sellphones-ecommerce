@@ -60,7 +60,7 @@ function SignIn({ handleClose, handleOpenUp }) {
           setLoading(true);
           let token;
           await axios
-            .post(`http://localhost:4000/auth/login`, input)
+            .post(`/auth/login`, input)//http://localhost:4000
             // TODO POrque esto es un post????????
             .then((response) => {
               if (response.status == 200) {
@@ -148,7 +148,8 @@ function SignIn({ handleClose, handleOpenUp }) {
                 {/* <button type="button" class="btn btn-primary z-depth-1a sign-fb">
                 <i class="fab fa-facebook-f text-center"></i>
               </button> */}
-                <a href="http://localhost:4000/auth/google">
+              {/* http://localhost:4000 */}
+                <a href="/auth/google"> 
                   <button
                     type="button"
                     class="btn btn-danger z-depth-1a sign-go"
@@ -156,7 +157,8 @@ function SignIn({ handleClose, handleOpenUp }) {
                     <i class="fab fa-google-plus-g text-center"></i>
                   </button>
                 </a>
-                <a href="http://localhost:4000/auth/github">
+                {/* http://localhost:4000 */}
+                <a href="/auth/github">
                   <button
                     type="button"
                     class="btn btn-dark z-depth-1a sign-git"

@@ -23,7 +23,7 @@ export default function PasswordReset() {
 
   function postpassword() {
     axios
-      .post("http://localhost:4000/user/passwordreset", {oldpassword: oldpassword, password: password ,id: user.id})
+      .post("/user/passwordreset", {oldpassword: oldpassword, password: password ,id: user.id})//http://localhost:4000
       .then(function (response) {
         if(response.data.mensaje==="Incorrect")
         {

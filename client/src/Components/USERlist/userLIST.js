@@ -36,7 +36,7 @@ const UserLIST = () => {
   }
 
   async function getProducts() {
-    var funcGet = await axios.get("http://localhost:4000/user/", {
+    var funcGet = await axios.get("/user/", {//http://localhost:4000
       headers: { authorization: localStorage.getItem("token") },
     });
     setAllProducts(funcGet.data);
@@ -45,7 +45,7 @@ const UserLIST = () => {
   function handlerEdit(e) {
     e.preventDefault();
     axios
-      .put(`http://localhost:4000/user/${selectUser.id}`, selectUser, {
+      .put(`h/user/${selectUser.id}`, selectUser, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -59,7 +59,7 @@ const UserLIST = () => {
 
   function handlerDelete(id) {
     axios
-      .delete(`http://localhost:4000/user/${id}`, {
+      .delete(`/user/${id}`, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((res) => {

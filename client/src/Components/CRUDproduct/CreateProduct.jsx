@@ -109,14 +109,14 @@ export default function CreateProduct() {
     e.preventDefault();
     console.log(products.colors);
     axios
-      .post("http://localhost:4000/products/", products ,{ headers: { authorization:localStorage.getItem('token') } })
+      .post("/products/", products ,{ headers: { authorization:localStorage.getItem('token') } })//http://localhost:4000
       .then(function (response) {
         selectedcategories.map((cat) => {
           // response trae la respuesta de la peticion, q devuelve la respuesta del back
           // entonces pudimos traer el id del producto que acabamos de crear y asi cargarle las categorias
           axios
             .post(
-              `http://localhost:4000/products/${response.data.id}/category/${cat}`,{ headers: { authorization:localStorage.getItem('token') } }
+              `/products/${response.data.id}/category/${cat}`,{ headers: { authorization:localStorage.getItem('token') } }//http://localhost:4000
             )
             .then(function (response) { }); //esto se asegura que se postee todo antes de recargar la pagina
         });
@@ -124,7 +124,7 @@ export default function CreateProduct() {
           //por cada sugestion cargado lo asocia al producto
           axios
             .post(
-              `http://localhost:4000/products/${response.data.id}/sugestion/${sug}`,{ headers: { authorization:localStorage.getItem('token') } }
+              `/products/${response.data.id}/sugestion/${sug}`,{ headers: { authorization:localStorage.getItem('token') } }//http://localhost:4000
             )
             .then(function (response) { }); //esto se asegura que se postee todo antes de recargar la pagina
         });
@@ -192,10 +192,10 @@ export default function CreateProduct() {
 
   useEffect(() => {
     //trae las categorias apenas entra a la pagina
-    axios.get("http://localhost:4000/category/").then((response) => {
+    axios.get("/category/").then((response) => {//http://localhost:4000
       setcategory(response.data);
     });
-    axios.get("http://localhost:4000/sugestions/").then((response) => {
+    axios.get("/sugestions/").then((response) => {//http://localhost:4000
       setSugestions(response.data);
     });
   }, []);

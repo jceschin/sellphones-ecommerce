@@ -56,7 +56,7 @@ const Producto = ({ match, review }) => {
   }, []);
 
   async function getSpecificProduct(id) {
-    let response = await axios.get(`http://localhost:4000/products/${id}`);
+    let response = await axios.get(`/products/${id}`);//http://localhost:4000
 
     setProduct(response.data.data);
   }
@@ -70,7 +70,7 @@ const Producto = ({ match, review }) => {
 
   async function getReviews() {
     await axios
-      .get(`http://localhost:4000/products/${id}/reviews`)
+      .get(`/products/${id}/reviews`)//http://localhost:4000
       .then((products) => {
         let reviews = products.data.data.reviews;
 

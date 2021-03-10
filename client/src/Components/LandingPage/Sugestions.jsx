@@ -14,7 +14,7 @@ const Sugestions = () => {
       return parseInt(x, 10);
     });
     axios
-      .post("http://localhost:4000/products/sugestions", { sugestion: result })
+      .post("/products/sugestions", { sugestion: result })//http://localhost:4000
       .then((response) => {
         setProducts(response.data);
       });

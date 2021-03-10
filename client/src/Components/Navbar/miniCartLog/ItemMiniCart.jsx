@@ -10,14 +10,14 @@ const ItemCart = ({ product, idorder, setCart, setAllTotal, getOrders }) => {
   
   useEffect(()=>{
     if(!isNaN(acum)){
-      axios.put(`http://localhost:4000/users/${user.id}/cart`, { id: id, acum: acum })
+      axios.put(`/users/${user.id}/cart`, { id: id, acum: acum })//http://localhost:4000
       .then(orden => {
       });
     }
   },[acum])
 
   async function deleteProduct() {
-    await axios.delete(`http://localhost:4000/orders/miniCart/${idorder}/${id}`)
+    await axios.delete(`/orders/miniCart/${idorder}/${id}`)//http://localhost:4000
       .then((res) => {
         console.log(res.data)
         setCart(res.data.order);

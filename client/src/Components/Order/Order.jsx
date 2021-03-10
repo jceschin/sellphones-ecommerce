@@ -14,7 +14,7 @@ const Order = ({ id }) => {
   }, []);
 
   async function getOrder(id) {
-    let response = await axios.get(`http://localhost:4000/orders/${id}`);
+    let response = await axios.get(`/orders/${id}`);//http://localhost:4000
     
     setOrder(response.data.data);
   }

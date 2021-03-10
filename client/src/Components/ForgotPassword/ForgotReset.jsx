@@ -18,7 +18,7 @@ export default function ForgotReset(props) {
     var token = search.substring(1);
     console.log(token);
     axios
-      .post('http://localhost:4000/emailforgot/reset', { token: token })
+      .post('/emailforgot/reset', { token: token })//http://localhost:4000
       .then((res) => {
         if(res.data.message=='linkok'){
             setValid(true);
@@ -38,7 +38,7 @@ export default function ForgotReset(props) {
 
   function postpassword() {
     axios
-      .post("http://localhost:4000/user/passwordresetforgot", {password: password ,id: userid}).then(function(response){
+      .post("/user/passwordresetforgot", {password: password ,id: userid}).then(function(response){//http://localhost:4000
         window.localStorage.removeItem("token");
         window.location.replace("/");
       })

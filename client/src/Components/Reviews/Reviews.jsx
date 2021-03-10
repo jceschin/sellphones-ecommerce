@@ -17,7 +17,7 @@ const Reviews = ({ productId }) => {
 
   async function getReviews() {
     await axios
-      .get(`http://localhost:4000/products/${productId}/reviews`)
+      .get(`/products/${productId}/reviews`)//http://localhost:4000
       .then((products) => {
         let reviews = products.data.data.reviews;
 

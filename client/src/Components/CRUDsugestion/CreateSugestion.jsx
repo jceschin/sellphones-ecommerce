@@ -17,7 +17,7 @@ export default function CreateSugestion() {
 
   function postsugestions() {
     axios
-      .post("http://localhost:4000/sugestions/", sugestion)
+      .post("/sugestions/", sugestion) //http://localhost:4000
       .then(function (response) {});
   }
 

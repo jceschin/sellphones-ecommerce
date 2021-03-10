@@ -18,7 +18,7 @@ const Pay = ({ id }) => {
   }, []);
 
   const orderCart = async () => {
-    let response = await axios.get(`http://localhost:4000/orders/cart/${user.id}`);
+    let response = await axios.get(`/orders/cart/${user.id}`);//http://localhost:4000
     let constIva = Math.round(response.data.data.price * 0.19);
     let constTotal = response.data.data.price + constIva;
     setCheckIva(constIva);
@@ -30,14 +30,14 @@ const Pay = ({ id }) => {
   const upOrderBack = async () => {
     if (checkOrder.state === 'inProgress') {
       console.log(checkOrder)
-      let response = await axios.put(`http://localhost:4000/orders/${id}`, checkOrder);
+      let response = await axios.put(`h/orders/${id}`, checkOrder);//http://localhost:4000
       console.log(response.data.data)
       history.push("/");
     }
   }
 
   const deleteOrder = () => {
-    axios.delete(`http://localhost:4000/orders/cart/${id}`)
+    axios.delete(`/orders/cart/${id}`)//http://localhost:4000
       .then()
   }
 
@@ -84,8 +84,8 @@ const Pay = ({ id }) => {
               <h3> {checkTotalOrder} </h3>
             </div>
           </div>
-
-          <form action="http://localhost:4000/mercadopago" method="GET">
+          {/* //http://localhost:4000     */}
+          <form action="/mercadopago" method="GET">
             <input type="hidden" name="id" value={id} />
             <input type="submit" value="TO BUY MERCADOPAGO" class="btn btn-primary btn-block" />
           </form>

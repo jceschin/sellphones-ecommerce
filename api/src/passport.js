@@ -37,7 +37,7 @@ passport.use(
 passport.use(new GitHubStrategy({
     clientID: '0945ab890e97699e68dd',
     clientSecret: '197a8cbda31e4e39d41427ffd24baceb5cb50a7f',
-    callbackURL: "http://localhost:4000/auth/github/callback"
+    callbackURL: "/auth/github/callback" //http://localhost:4000
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -69,7 +69,7 @@ passport.use(new GitHubStrategy({
 passport.use(new GoogleStrategy({
   clientID: '469420223233-c04s1iddkpa285d82hervlk7fuarjgrn.apps.googleusercontent.com',
   clientSecret: 'phsaxbxFslnchCVHFq7Oc8Ls',
-  callbackURL: 'http://localhost:4000/auth/google/callback',
+  callbackURL: '/auth/google/callback', //http://localhost:4000
 }, async (accessToken, refreshToken, profile, done) => {
   try {
 

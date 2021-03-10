@@ -22,7 +22,7 @@ const Cart = () => {
     //trae los productos de la orden carrito
     if (user) {
       let response = await axios.get(
-        `http://localhost:4000/orders/cart/${user.id}`
+        `/orders/cart/${user.id}` //http://localhost:4000
       );
       if (
         response.data.data === null ||
@@ -32,18 +32,18 @@ const Cart = () => {
         localStorage.removeItem("cartItems");
         if (storageCart) {
           axios
-            .post(`http://localhost:4000/orders/cart`, { id: user.id })
+            .post(`/orders/cart`, { id: user.id }) //http://localhost:4000
             .then((res) => {
               storageCart.map((product) => {
                 axios.post(
-                  `http://localhost:4000/users/${user.id}/cart/${res.data}`,
+                  `/users/${user.id}/cart/${res.data}`, //http://localhost:4000
                   { id: product.id, acum: product.count }
                 );
               });
             })
             .then((res) => {
               axios
-                .get(`http://localhost:4000/orders/cart/${user.id}`)
+                .get(`/orders/cart/${user.id}`) //http://localhost:4000
                 .then((localResponse) => {
                   console.log(localResponse);
                   setCart(localResponse.data.data);

@@ -21,7 +21,7 @@ const CatalogueSearch = (props) => {
     if (props.match.params.search) {
       axios
         .get(
-          "http://localhost:4000/products/search/" + props.match.params.search
+          "/products/search/" + props.match.params.search //http://localhost:4000
         )
         .then((res) => {
           setAllProducts(res.data);
@@ -34,7 +34,7 @@ const CatalogueSearch = (props) => {
   }, [selectedCategories]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/category/").then((categories) => {
+    axios.get("/category/").then((categories) => { //http://localhost:4000
       setAllCategories(categories.data);
     });
   }, []);

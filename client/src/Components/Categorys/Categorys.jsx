@@ -14,7 +14,7 @@ const Categorys = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/category/").then((categories) => {
+    axios.get("/category/").then((categories) => {//http://localhost:4000
       setAllCategories(allCategories.concat(categories.data));
     });
   }, []);
@@ -36,7 +36,7 @@ const Categorys = () => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:4000/category/${selectCategory.id}`,
+        `/category/${selectCategory.id}`, //http://localhost:4000
         selectCategory,
         { headers: { authorization: localStorage.getItem("token") } }
       )
@@ -49,7 +49,7 @@ const Categorys = () => {
 
   function handlerDelete(id) {
     axios
-      .delete(`http://localhost:4000/category/${id}`, {
+      .delete(`/category/${id}`, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((res) => {

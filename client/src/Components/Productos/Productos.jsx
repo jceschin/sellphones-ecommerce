@@ -32,7 +32,7 @@ const Productos = () => {
   }
 
   async function getProducts() {
-    var funcGet = await axios.get("http://localhost:4000/products/");
+    var funcGet = await axios.get("/products/");//http://localhost:4000
     setAllProducts(funcGet.data);
   }
 
@@ -40,7 +40,7 @@ const Productos = () => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:4000/products/${selectProduct.id}`,
+        `/products/${selectProduct.id}`,//http://localhost:4000
         selectProduct,
         { headers: { authorization: localStorage.getItem("token") } }
       )
@@ -55,7 +55,7 @@ const Productos = () => {
 
   function handlerDelete(id) {
     axios
-      .delete(`http://localhost:4000/products/${id}`, {
+      .delete(`/products/${id}`, {//http://localhost:4000
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((res) => {

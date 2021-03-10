@@ -22,7 +22,7 @@ export default function ForgotPassword() {
 
 
     axios
-      .post('http://localhost:4000/emailforgot/forgotPassword', { email: email })
+      .post('/emailforgot/forgotPassword', { email: email })//http://localhost:4000
       .then((res) => {
 
       })

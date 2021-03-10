@@ -21,19 +21,19 @@ const MiniCart = () => {
   async function getOrders() {
     //trae los productos de la orden carrito
     if(user){
-      let response = await axios.get(`http://localhost:4000/orders/cart/${user.id}` );
+      let response = await axios.get(`/orders/cart/${user.id}` );//http://localhost:4000
       if(response.data.data === null || response.data.data.products.length < 1){
         var storageCart =JSON.parse( localStorage.getItem('cartItems'));
         localStorage.removeItem('cartItems');
         if(storageCart){
-          axios.post(`http://localhost:4000/orders/cart`, { id: user.id })
+          axios.post(`/orders/cart`, { id: user.id })//http://localhost:4000
                 .then( res => {
                   storageCart.map(product =>{
-                    axios.post(`http://localhost:4000/users/${user.id}/cart/${res.data}`, { id: product.id, acum: product.count });
+                    axios.post(`/users/${user.id}/cart/${res.data}`, { id: product.id, acum: product.count });//http://localhost:4000
                   })
                 })
                 .then(res => {
-                  axios.get(`http://localhost:4000/orders/cart/${user.id}` )
+                  axios.get(`/orders/cart/${user.id}` )//http://localhost:4000
                         .then( localResponse =>{
                           console.log(localResponse)
                           setCart(localResponse.data.data);

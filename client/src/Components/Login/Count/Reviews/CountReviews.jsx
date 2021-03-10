@@ -9,7 +9,7 @@ const CountReviews = () => {
 
   const getUserReviews = async () => {
     let response = await axios.get(
-      `http://localhost:4000/products/reviews/${user.id}`
+      `/products/reviews/${user.id}`//http://localhost:4000
     );
     console.log(response);
     setReviews(response.data.data);

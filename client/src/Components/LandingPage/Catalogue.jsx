@@ -20,7 +20,7 @@ const Catalogue = (props) => {
   }, [selectedCategories]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/category/").then((categories) => {
+    axios.get("/category/").then((categories) => {//http://localhost:4000
       setAllCategories(categories.data);
     });
   }, []);
