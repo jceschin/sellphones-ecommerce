@@ -121,7 +121,7 @@ server.get("http://localhost:3001/purchaseSuccess/:id", (req, res) => {
                 one: 'Congratulations!',
                 two: 'The purchase payment was paid successfully.',
                 three: 'Go to SellPhone Store',
-                four: 'http://localhost:3000'
+                four: ''
             }
         };
         transporter.sendMail(mailOptions, (err, info) => {
@@ -129,7 +129,7 @@ server.get("http://localhost:3001/purchaseSuccess/:id", (req, res) => {
                 res.status(500).send(err.message);
             } else {
                 console.log(`email enviado a ${to}`);
-                res.redirect("http://localhost:3000/me/shopping");
+                res.redirect("http://localhost:3001/me/shopping");
             }
         });
     })
@@ -194,7 +194,7 @@ server.get("http://localhost:3001/purchaseFailure/:id", (req, res) => {
                 one: "Oops ... something didn't go right.",
                 two: 'Payment failed, please go back to your cart and try again.',
                 three: 'Go to cart',
-                four: 'http://localhost:3000/cart'
+                four: 'http://localhost:3001/cart'
             }
         };
         transporter.sendMail(mailOptions, (err, info) => {
@@ -202,7 +202,7 @@ server.get("http://localhost:3001/purchaseFailure/:id", (req, res) => {
                 res.status(500).send(err.message);
             } else {
                 console.log(`email enviado a ${to}`);
-                res.redirect("http://localhost:3000/");
+                res.redirect("http://localhost:3001/");
             }
         });
     })

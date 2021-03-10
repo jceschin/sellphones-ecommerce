@@ -20,7 +20,7 @@ server.get('http://localhost:3001/github',
   passport.authenticate('github', { scope: [ 'user:email' ],prompt: 'select_account', }));
 
 server.get('http://localhost:3001/github/callback',
-  passport.authenticate('github', { failureRedirect: '/login' }),
+  passport.authenticate('github', { failureRedirect: 'http://localhost:3001/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     const { id, givenName, familyName, email, photoURL, isAdmin } = req.user;
@@ -37,7 +37,7 @@ server.get('http://localhost:3001/github/callback',
         "secreto")
 
 
-      res.redirect(`http://localhost:3000/gettokensocial?${token}`)
+      res.redirect(`http://localhost:3001/gettokensocial?${token}`)
   });
 
 
@@ -47,7 +47,7 @@ server.get('http://localhost:3001/google', passport.authenticate('google', {
 }));
 
 server.get('http://localhost:3001/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { failureRedirect: 'http://localhost:3001/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     const { id, givenName, familyName, email, photoURL, isAdmin } = req.user;
@@ -63,7 +63,7 @@ server.get('http://localhost:3001/google/callback',
         },
         "secreto")
 
-      res.redirect(`http://localhost:3000/gettokensocial?${token}`)
+      res.redirect(`http://localhost:3001/gettokensocial?${token}`)
 
   });
 

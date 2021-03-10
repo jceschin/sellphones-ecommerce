@@ -31,7 +31,7 @@ const OrderDetails = () => {
                 <h4>{product.name}</h4>
                 <p>Cuantity: {product.order_line.count}</p>
                 <p>Purshased at: {date}</p>
-                <a href={`http://localhost:3000/products/${id}`}>Link</a>
+                <a href={`/products/${id}`}>Link</a>
               </div>
             );
           })}

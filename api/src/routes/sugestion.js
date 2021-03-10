@@ -1,7 +1,7 @@
 const server = require("express").Router();
 const { Sugestion } = require("../db.js");
 
-server.get("/", (req, res, next) => {
+server.get("http://localhost:3001/", (req, res, next) => {
   Sugestion.findAll()
     .then((sugestion) => {
       res.send(sugestion);

@@ -81,14 +81,14 @@ const Form = () => {
               <div>
                 <h1>We choose this phone for you!</h1>
                 <div>
-                  <a href={`http://localhost:3000/products/${wishedProduct}`}>
+                  <a href={`/products/${wishedProduct}`}>
                     Link
                   </a>
                 </div>
               </div>
             ) : (
               <div>
-                <a href={`http://localhost:3000/catalogue`}>
+                <a href={`/catalogue`}>
                   We dont have a phone like that!, do it again!
                 </a>
               </div>

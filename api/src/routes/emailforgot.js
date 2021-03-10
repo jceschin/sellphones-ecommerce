@@ -36,7 +36,7 @@ server.post("http://localhost:3001/forgotPassword", (req, res) => {
         subject: 'Link to Reset Password',
         text:
         'Click on the link to reset the password \n\n'
-        + `http://localhost:3000/reset?${token}\n\n`,
+        + `/reset?${token}\n\n`,
 
       };
       console.log('sending mail');
