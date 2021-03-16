@@ -264,7 +264,7 @@ const Producto = ({ match, review }) => {
           </div>
         ) : (
           <div className="reviews-box">
-            {/* {user ? <CreateReview productId={match.params.id} /> : null} */}
+            {user ? <CreateReview productId={match.params.id} /> : null}
             <Reviews productId={match.params.id} />
           </div>
         )}
