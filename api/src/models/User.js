@@ -50,7 +50,7 @@ module.exports = (sequelize) => {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
   });
   User.prototype.compare = function (pass) {
