@@ -98,26 +98,13 @@ function BootstrapNavbar() {
                       <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
                     </Nav.Link>
                   </Col>
-                  {/* <Col xs={1.5} className="text-center">
-                    <Nav.Link href="/showProducts">
-                      <FontAwesomeIcon icon={faCartArrowDown} /> My Products
-                    </Nav.Link>
-                  </Col>
-                  <Col xs={1.5} className="text-center">
-                    <Nav.Link href="/showCategories">
-                      <FontAwesomeIcon icon={faAtlas} /> My Categories
-                    </Nav.Link>
-                  </Col> */}
+
                   <Col xs={1.5} className="text-center">
                     <Nav.Link href="/orders">
                       <FontAwesomeIcon icon={faTruck} /> All Orders
                     </Nav.Link>
                   </Col>
-                  {/* <Col xs={1.5} className="text-center">
-                    <Nav.Link href="/userlist">
-                      <FontAwesomeIcon icon={faUsers} /> User List
-                    </Nav.Link>
-                  </Col> */}
+
                   <Col xs={3}>
                     <Searchbar />
                   </Col>
